@@ -8,4 +8,9 @@ router.get('/', function(req, res, next) {
   res.send({name: config.admin.name});
 });
 
+router.get('/getCurrentUser', function(req, res, next) {
+  const {name, email} = config.admin;
+  res.send({name, email});
+});
+
 export default router;

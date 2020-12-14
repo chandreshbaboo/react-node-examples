@@ -5,14 +5,15 @@ class User extends Component {
     super(props);
     this.state = {
       user: {
-        name: ""
+        name: "",
+        email: ""
       }
     };
     this.fetchUsers = this.fetchUsers.bind(this);
   }
 
   fetchUsers() {
-    fetch("/users/")
+    fetch("/users/getCurrentUser")
       .then(response => {
         return response.json();
       })
@@ -28,9 +29,11 @@ class User extends Component {
   }
 
   render() {
+    const { user } = this.state;
     return (
       <div className="user">
-        <h1>Hello {this.state.user.name}</h1>
+        <h1>Hello {user.name}</h1>
+        <p>Email: {user.email}</p>
       </div>
     );
   }
