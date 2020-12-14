@@ -2,10 +2,10 @@ import express from "express";
 import http from "http";
 import bodyParser from "body-parser";
 import users from "./routes/users";
-import dotenv from 'dotenv';
+require('dotenv').config();
 const app = express();
 
-dotenv.config();
+console.log(`Your port is ${process.env.PORT}`);
 app.use(express.static(__dirname + "/src"));
 
 app.use(bodyParser.json());
